@@ -2,6 +2,6 @@ steps:
 - name: python:latest
   args: ['python3','main.py']
 - name: ubuntu
-  args: ['/bin/bash','ll','-r','/']   
+  args: ['/bin/bash','ls','-r','/']   
     
     
