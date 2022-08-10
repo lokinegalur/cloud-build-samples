@@ -1,4 +1,6 @@
-         steps:
-         - name: golang
-           args: ['go', 'run', 'main.go']
+steps:
+- name: python:latest
+  args: ['python3','main.py']
+    
+    
     
