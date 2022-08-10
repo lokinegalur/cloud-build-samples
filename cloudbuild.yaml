@@ -1,6 +1,7 @@
 steps:
 - name: python:latest
   args: ['python3','main.py']
-    
+- name: alpine
+  args: ['ll']   
     
     
