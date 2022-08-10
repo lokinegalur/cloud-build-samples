@@ -1,6 +1,6 @@
 steps:
 - name: python:latest
-  args: ['python3','main.py']
+  args: ['python3','/workspace/cloud-build-samplesmain.py']
 - name: ubuntu
   args: ['ls']   
     
