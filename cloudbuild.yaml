@@ -8,8 +8,11 @@ steps:
   - name: python:latest
     args: ['python3','main.py']
     id: 'build'
+  - name: ubuntu
+    args: ['zip','-r','code.zip','./*.py']
+    id: 'zipp'
   - name: google/cloud-sdk:latest
-    args: ['gsutil','cp','-r','./*.py','gs://dummy_use/cloudbuild1/']
+    args: ['gsutil','cp','code.zip','gs://dummy_use/cloudbuild1/']
     waitFor: ['build']
 
     
