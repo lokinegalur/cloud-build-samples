@@ -10,7 +10,6 @@ steps:
     id: 'build'
   - name: gcr.io/cloud-builders/docker
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/zip', '.']
-
   images: ['gcr.io/$PROJECT_ID/zip']
   - name: gcr.io/$PROJECT_ID/zip
     args: ['code-$BUILD_ID.zip','./*.py']
