@@ -4,7 +4,8 @@ steps:
   id: 'build'
 - name: 'gcr.io/$PROJECT_ID/zip:v1'
   args: ['code-$BUILD_ID.zip','./*.py']
-  id: 'zip' 
+  id: 'zip'
+  waitFor: ['image'] 
 - name: 'google/cloud-sdk:latest'
   args: ['gsutil','cp','code-$BUILD_ID.zip','gs://dummy_use/cloudbuild-$BUILD_ID/']
   waitFor: ['build','zip']
