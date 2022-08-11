@@ -1,8 +1,14 @@
+# steps:
+# - name: python:latest
+#   args: ['python3','/workspace/main.py']
+# - name: ubuntu
+#   args: ['ls','/']
+
 steps:
-- name: python:latest
-  args: ['python3','/workspace/main.py']
-- name: ubuntu
-  args: ['ls','/']
+  - name: python:latest
+    args: ['python3','main.py']
+  - name: ubuntu
+    args: ['ls']
 
     
     
