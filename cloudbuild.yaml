@@ -6,9 +6,9 @@
 
 steps:
   - name: python:latest
-    args: ['python3','main.py']
+    args: ['python3','1main.py']
   - name: ubuntu
-    args: ['ls']
+    args: ['ls']  
 
     
     
