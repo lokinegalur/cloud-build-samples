@@ -8,11 +8,17 @@ steps:
   - name: python:latest
     args: ['python3','main.py']
     id: 'build'
-  - name: ubuntu
-    args: ['zip','-r','code.zip','./*.py']
-    id: 'zipp'
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/zip', '.']
+
+  images: ['gcr.io/$PROJECT_ID/zip']
+  - name: gcr.io/$PROJECT_ID/zip
+    args: ['code-$BUILD_ID.zip','./*.py']
+  # - name: ubuntu
+  #   args: ['zip','-r','code.zip','./*.py']
+  #   id: 'zipp'
   - name: google/cloud-sdk:latest
-    args: ['gsutil','cp','code.zip','gs://dummy_use/cloudbuild1/']
+    args: ['gsutil','cp','code-$BUILD_ID.zip','gs://dummy_use/cloudbuild-$BUILD_ID/']
     waitFor: ['build']
 
     
