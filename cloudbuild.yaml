@@ -2,13 +2,13 @@ steps:
 - name: python:latest
   args: ['python3','main.py']
   id: 'build'
-- name: 'gcr.io/$PROJECT_ID/zip'
+- name: 'gcr.io/$PROJECT_ID/zip:v1'
   args: ['code-$BUILD_ID.zip','./*.py']
   id: 'zip' 
 - name: 'google/cloud-sdk:latest'
   args: ['gsutil','cp','code-$BUILD_ID.zip','gs://dummy_use/cloudbuild-$BUILD_ID/']
   waitFor: ['build','zip']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build','-t','gcr.io/$PROJECT_ID/zip','.']
+  args: ['build','-t','gcr.io/$PROJECT_ID/zip:v1','.']
   id: 'image'
-images: ['gcr.io/$PROJECT_ID/zip']
+images: ['gcr.io/$PROJECT_ID/zip:v1']
