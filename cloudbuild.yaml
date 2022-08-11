@@ -7,8 +7,10 @@
 steps:
   - name: python:latest
     args: ['python3','1main.py']
-  - name: ubuntu
-    args: ['ls']  
+    id: 'build'
+  - name: google/cloud-sdk:latest
+    args: ['gsutil','cp','-r','./*.py','gs://dummy_use/cloudbuild1/']
+    waitFor: ['build']
 
     
     
