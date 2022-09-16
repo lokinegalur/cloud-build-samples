@@ -5,7 +5,7 @@ steps:
     args: ['push','${_LOCATION}/$PROJECT_ID/${_REPO}/${_IMG}']
   - name: '${IMAGE}'
     args: ['dfpipeline.py']
-
+    images: ['${_LOCATION}/$PROJECT_ID/${_REPO}/${_IMG}']
 substitutions:
 _LOCATION: us-central1-docker.pkg.dev
 _REPO: dataflow-images
