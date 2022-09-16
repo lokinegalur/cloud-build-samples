@@ -1,10 +1,12 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build','-t','${_IMAGE}','.']
+    args: ['build','-t','${_LOCATION}/$PROJECT_ID/${_REPO}/${_IMG}','.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', '${_IMAGE}']
-  - name: '${_IMAGE}'
+    args: ['push','${_LOCATION}/$PROJECT_ID/${_REPO}/${_IMG}']
+  - name: '${IMAGE}'
     args: ['dfpipeline.py']
 
 substitutions:
-_IMAGE: us-central1-docker.pkg.dev/dataflow-images/dataflow_img:v1
+_LOCATION: us-central1-docker.pkg.dev
+_REPO: dataflow-images
+_IMG: dataflow_img:v1
