@@ -1,3 +1,3 @@
 steps:
 - name: 'ubuntu'
-  args: ['echo','$(body)']
+  args: ['echo','$_PUSH_NAME','echo','$_COMMITS','echo','$_OWNER','echo','$_URL','echo','$_LANGUAGE']
