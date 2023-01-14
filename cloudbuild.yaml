@@ -1,4 +1,5 @@
 steps:
-  - name: ubuntu
-    entrypoint: bash
-    args: [ls]
+- name: bash
+  script: |
+    #!/usr/bin/env bash
+    echo "Hello World"
