@@ -1,3 +1,11 @@
 steps:
 - name: 'ubuntu'
-  args: ['echo','$_PUSH_NAME','echo','$_COMMITS','echo','$_OWNER','echo','$_URL','echo','$_LANGUAGE']
+  args:
+   - "-c"
+   - |
+   - echo "repo name is $_PUSH_NAME"
+   - echo "commits are $_COMMITS"
+   - echo "owner is $_OWNER"
+   - echo "URL is $_URL"
+   - echo "Language is $_LANGUAGE"
+  # args: ['echo','$_PUSH_NAME','echo','$_COMMITS','echo','$_OWNER','echo','$_URL','echo','$_LANGUAGE']
