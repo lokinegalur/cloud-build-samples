@@ -1,5 +1,5 @@
 steps:
   - name: gcr.io/cloud-builders/curl
     entrypoint: bash
-    args: [echo,$(body)]
+    args: [cat,$(body)]
 #
